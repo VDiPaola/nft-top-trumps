@@ -13,7 +13,7 @@ describe("TopTrumps", async function(){
   it("attempt to create a card", async function () {
     // Name, Rarity, Strength, Cuteness, Agility, Lifespan, Aggression
     expect(await topTrumps.createCard("uri","peter", 100, 50, 200, 150, 20))
-    .to.emit(topTrumps, "cardCreated")
+    .to.emit(topTrumps, "CardCreated")
 
     const waitForEvent = false
     if(waitForEvent){
@@ -30,13 +30,27 @@ describe("TopTrumps", async function(){
     var id = 1;
     //create card
     expect(await topTrumps.createCard("uri","peter", 100, 50, 200, 150, 20))
-    .to.emit(topTrumps, "cardCreated")
+    .to.emit(topTrumps, "CardCreated")
     //get card
     const cards = await topTrumps.getCards()
     const card = cards[0]
     //expect values match
     expect(card.name).to.equal("peter")
     expect(card.strength).to.equal(100)
+  });
+
+  it("Buy pack", async function () {
+    var id = 1;
+    //create card
+    expect(await topTrumps.createCard("uri","peter", 100, 50, 200, 150, 20))
+    .to.emit(topTrumps, "CardCreated")
+    //buy pack
+    
+    expect(await topTrumps.buyPack())
+    .to.emit(topTrumps, "PackOpened")
+
+    console.log(await topTrumps.getTokens())
+    
   });
 
 

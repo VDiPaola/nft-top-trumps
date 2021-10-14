@@ -14,7 +14,7 @@ library CardHelper{
     enum CardStats{
         strength,
         cuteness,
-        speed,
+        agility,
         lifespan,
         aggression
     }
@@ -26,7 +26,7 @@ library CardHelper{
         CardRarity rarity;
         uint16 strength;
         uint16 cuteness;
-        uint16 speed;
+        uint16 agility;
         uint16 lifespan;
         uint16 aggression;
     }
@@ -38,7 +38,7 @@ library CardHelper{
         bool winCondition = 
             stat == CardStats.strength && card1.strength > card2.strength ||
             stat == CardStats.cuteness && card1.cuteness > card2.cuteness ||
-            stat == CardStats.speed && card1.speed > card2.speed ||
+            stat == CardStats.agility && card1.agility > card2.agility ||
             stat == CardStats.lifespan && card1.lifespan > card2.lifespan ||
             stat == CardStats.aggression && card1.aggression > card2.aggression;
         
