@@ -21,7 +21,9 @@ export class HomePage extends React.Component{
             userCards:[],
 
             spinner:false,
-            signed:null
+            signed:null,
+			
+			title:"Top Trumps"
         }
 
     }
@@ -142,6 +144,7 @@ export class HomePage extends React.Component{
     render(){
         return(
             <Container className="vh-100">
+				<h1>{this.state.title}</h1>
                 <Row className="h-100">
                     <Stack gap={1} className="col-3 float-left my-auto">
                         {
